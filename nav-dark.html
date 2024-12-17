@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/darknav.css" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- Owl Carousel CSS -->
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-JobWAqYk5CSjWuVV3mxgS+MmccJqkrBaDhk8SKS1BW+71dJ9gzascwzW85UwGhxiSyR7Pxhu50k+Nl3+o5I49A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/owl.carousel/2.3.4/owl.carousel.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=MonteCarlo&display=swap"
+        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=MonteCarlo&display=swap"
+        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/2.3.4/assets/owl.theme.default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>Homepage</title>
+
+    <script>
+        const textArray = [
+            { text: "Co-Ords", color: "#d9d9d9", fontWeight: "300", fontFamily: "Lato" },
+            { text: "Latest Fashion", color: "#d9d9d9", fontWeight: "300", fontFamily: "Lato" },
+            { text: "Shirt", color: "#d9d9d9", fontWeight: "300", fontFamily: "Lato" },
+            { text: "Pant", color: "#d9d9d9", fontWeight: "300", fontFamily: "Lato" },
+        ];
+
+        let index = 0; // To keep track of the current text index
+        let interval; // To store the interval ID
+
+        // Function to update the span text and style every 2 seconds
+        function updateText() {
+            const span = document.getElementById("dynamicText"); // Get the span element
+            const currentItem = textArray[index]; // Get the current text and style
+
+            span.textContent = currentItem.text; // Update span text
+            span.style.color = currentItem.color || "inherit"; // Apply color
+            span.style.fontWeight = currentItem.fontWeight || "normal"; // Apply font weight
+            span.style.fontFamily = currentItem.fontFamily || "inherit"; // Apply font family
+
+            index = (index + 1) % textArray.length; // Move to the next index, looping back to 0 if at the end
+        }
+
+        // Start the interval when the page loads
+        interval = setInterval(updateText, 2000);
+
+        // Function to disable placeholder and stop text updates when input is focused
+        function disablePlaceholder() {
+            document.getElementById("placeholder").style.display = "none"; // Hide the placeholder
+            clearInterval(interval); // Stop the interval
+        }
+
+        // Function to enable placeholder and resume text updates when input loses focus
+        function enablePlaceholder() {
+            const searchValue = document.getElementById("search").value; // Get the input value
+            if (searchValue.trim() === "") {
+                document.getElementById("placeholder").style.display = "block"; // Show the placeholder
+                interval = setInterval(updateText, 2000); // Restart the interval
+            }
+        }
+
+        const rangeInput = document.querySelectorAll(".range-input input"),
+            priceInput = document.querySelectorAll(".price-input input"),
+            range = document.querySelector(".slider .progress");
+        let priceGap = 1000;
+
+        priceInput.forEach((input) => {
+            input.addEventListener("input", (e) => {
+                let minPrice = parseInt(priceInput[0].value),
+                    maxPrice = parseInt(priceInput[1].value);
+
+                if (maxPrice - minPrice >= priceGap && maxPrice <= rangeInput[1].max) {
+                    if (e.target.classList.contains("input-min")) {
+                        rangeInput[0].value = minPrice;
+                        range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
+                    } else if (e.target.classList.contains("input-max")) {
+                        rangeInput[1].value = maxPrice;
+                        range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+                    }
+                }
+            });
+        });
+
+        rangeInput.forEach((input) => {
+            input.addEventListener("input", (e) => {
+                let minVal = parseInt(rangeInput[0].value),
+                    maxVal = parseInt(rangeInput[1].value);
+
+                if (maxVal - minVal < priceGap) {
+                    if (e.target.classList.contains("range-min")) {
+                        rangeInput[0].value = maxVal - priceGap;
+                    } else if (e.target.classList.contains("range-max")) {
+                        rangeInput[1].value = minVal + priceGap;
+                    }
+                } else {
+                    priceInput[0].value = minVal;
+                    priceInput[1].value = maxVal;
+                    range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+                    range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+                }
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+
+   
+
+
+    <div class="header">
+        <div class="container stick-fixed">
+            <div class="row align-items-center headertop w-100">
+                <div class="col-md-7 d-flex align-items-center">
+                    <img src="./assets/images/toggleblack.svg" alt="Toggle" class="toggle-icon">
+                    <a href="./index.html" alt="Homepage" class="text-decoration-none">
+                        <p class="SÖTBELLA">SÖTBELLA</p>
+                    </a>
+                </div>
+                <div class="col-md-5 d-flex justify-content-end gap-2 p-0">
+                   
+
+
+                    <form class="d-flex searchbar">
+                        <input
+                          id="search"
+                          class="form-control"
+                          type="text"
+                          placeholder=""
+                          aria-label="Search"
+                          onfocus="disablePlaceholder()"
+                          onblur="enablePlaceholder()"
+                        />
+                        <div class="placeholder" id="placeholder">
+                          Search For <span id="dynamicText" style="font-family: lato;">T-Shirt</span>
+                        </div>
+                      </form>
+                    <a href="./account.html" class="text-reset accountproduct">MY ACCOUNT</a>
+                    <a href="./cart.html" class="text-reset bagproduct">SHOPPING BAG</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
